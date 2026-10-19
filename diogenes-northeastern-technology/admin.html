@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050b16">
+  <meta name="description" content="Acesso administrativo do Diogenes Northeastern Technology">
+
+  <title>Acesso Administrativo | Diogenes Northeastern Technology</title>
+
+  <link rel="stylesheet" href="admin.css">
+  <script src="admin.js" defer></script>
+</head>
+  <a href="index.html" class="botao-voltar-site">
+    ← Voltar ao site principal
+  </a>
+
+<body>
+
+<header class="cabecalho">
+  <a class="marca" href="index.html">
+    <img
+      src="images/logo-diogenes.png"
+      alt="Logo Diogenes Northeastern Technology"
+      class="logo"
+    >
+
+    <span class="nome-site">
+      <strong>Diogenes</strong>
+      <span>Northeastern Technology</span>
+    </span>
+  </a>
+</header>
+
+
+  <main class="admin-principal">
+    <div class="admin-decoracao decoracao-um"></div>
+    <div class="admin-decoracao decoracao-dois"></div>
+
+    <section class="login-card">
+      <div class="login-icone" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="4" y="10" width="16" height="11" rx="2"
+            stroke="currentColor" stroke-width="1.8"/>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"
+            stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round"/>
+          <circle cx="12" cy="15" r="1.3" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <p class="login-etiqueta">ÁREA RESTRITA</p>
+      <h2>Acesso administrativo</h2>
+
+      <p class="login-descricao">
+        Entre para gerenciar as publicações do seu site.
+      </p>
+
+      <form id="login-form">
+        <label for="senha">Senha de acesso</label>
+
+        <div class="campo-senha">
+          <input
+            type="password"
+            id="senha"
+            name="senha"
+            placeholder="Digite sua senha"
+            autocomplete="current-password"
+            required
+          >
+
+          <button
+            type="button"
+            id="mostrar-senha"
+            class="botao-olho"
+            aria-label="Mostrar senha"
+            aria-pressed="false"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"
+                stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="12" cy="12" r="2.5"
+                stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </button>
+        </div>
+
+        <p id="login-mensagem" class="login-mensagem"
+          role="alert" aria-live="polite"></p>
+
+        <button type="submit" class="botao-entrar">
+          <span>Entrar no painel</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <div class="login-seguranca">
+        <span aria-hidden="true">●</span>
+        Acesso à área administrativa
+      </div>
+    </section>
+  </main>
+
+  <footer class="admin-rodape">
+    <p>
+      © <span id="ano-atual"></span>
+      Diogenes Northeastern Technology
+    </p>
+    <p>Tecnologia, inovação e raízes nordestinas.</p>
+  </footer>
+</body>
+</html>
