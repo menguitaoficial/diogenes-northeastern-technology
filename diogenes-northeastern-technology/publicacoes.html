@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050b16">
+  <meta name="description" content="Gerenciamento de publicações do site Diogenes Northeastern Technology.">
+  <title>Publicações | Diogenes Northeastern Technology</title>
+  <link rel="stylesheet" href="publicacoes.css">
+  <script src="publicacoes.js" defer></script>
+</head>
+
+<body>
+  <header class="topo">
+    <a class="voltar" href="admin.html">← Voltar ao painel</a>
+
+    <a class="marca" href="index.html">
+      <img src="images/logo-diogenes.png" alt="Logo Diogenes">
+      <span>
+        <strong>Diogenes <b>Northeastern Technology</b></strong>
+        <small>Painel administrativo</small>
+      </span>
+    </a>
+
+    <a class="ver-site" href="index.html">Ver site ↗</a>
+  </header>
+
+  <main class="principal">
+    <section class="introducao">
+      <p class="etiqueta">GERENCIAMENTO DE CONTEÚDO</p>
+      <h1>Suas <span>publicações</span></h1>
+      <p>Cadastre, edite e organize os conteúdos do seu espaço.</p>
+    </section>
+
+    <div id="mensagem" class="mensagem" role="status"
+         aria-live="polite" hidden></div>
+
+    <div class="layout">
+      <section class="painel formulario-painel">
+        <div class="titulo-painel">
+          <div>
+            <p class="etiqueta">NOVO CONTEÚDO</p>
+            <h2 id="titulo-formulario">Cadastrar publicação</h2>
+          </div>
+          <span class="simbolo">＋</span>
+        </div>
+
+        <form id="form-publicacao">
+          <input type="hidden" id="post-id">
+
+          <label for="categoria">Categoria</label>
+          <select id="categoria" required>
+            <option value="">Selecione uma categoria</option>
+            <option value="musica">Música</option>
+            <option value="jogos">Jogos</option>
+            <option value="fotos">Fotos</option>
+            <option value="sobre">Sobre mim</option>
+          </select>
+
+          <label for="titulo">Título da publicação</label>
+          <input id="titulo" type="text" maxlength="100"
+                 placeholder="Ex.: Minha história no Nordeste" required>
+
+          <label for="descricao">Descrição ou conteúdo</label>
+          <textarea id="descricao" rows="6" maxlength="5000"
+                    placeholder="Escreva o conteúdo da publicação..." required></textarea>
+
+          <label for="imagem">Link de uma imagem (opcional)</label>
+          <input id="imagem" type="url"
+                 placeholder="https://exemplo.com/imagem.jpg">
+
+          <label for="link">Link externo (opcional)</label>
+          <input id="link" type="url"
+                 placeholder="https://exemplo.com">
+
+          <div class="acoes-formulario">
+            <button class="botao-principal" type="submit" id="botao-salvar">
+              Publicar conteúdo <span>→</span>
+            </button>
+            <button class="botao-secundario" type="button"
+                    id="cancelar-edicao" hidden>
+              Cancelar edição
+            </button>
+          </div>
+          <p class="dica">Os campos de imagem e link são opcionais.</p>
+        </form>
+      </section>
+
+      <section class="painel lista-painel">
+        <div class="titulo-painel">
+          <div>
+            <p class="etiqueta">SEU CONTEÚDO</p>
+            <h2>Publicações cadastradas</h2>
+          </div>
+          <span class="contador" id="contador">0</span>
+        </div>
+
+        <div class="filtro">
+          <label for="filtro-categoria">Filtrar por categoria</label>
+          <select id="filtro-categoria">
+            <option value="todas">Todas as categorias</option>
+            <option value="musica">Música</option>
+            <option value="jogos">Jogos</option>
+            <option value="fotos">Fotos</option>
+            <option value="sobre">Sobre mim</option>
+          </select>
+        </div>
+
+        <div id="lista-publicacoes" class="lista-publicacoes"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>© <span id="ano"></span> Diogenes Northeastern Technology</p>
+    <p>Tecnologia, inovação e raízes nordestinas.</p>
+  </footer>
+</body>
+</html>
