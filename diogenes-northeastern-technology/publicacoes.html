@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050b16">
+  <meta name="description" content="Gerenciamento de publicações do site Diogenes Northeastern Technology.">
+  <title>Publicações | Diogenes Northeastern Technology</title>
+  
+<!-- Logo na aba do navegador -->
+<link rel="icon" type="image/png" href="images/logo-diogenes.png">
+<link rel="apple-touch-icon" href="images/logo-diogenes.png">
+
+  <link rel="stylesheet" href="publicacoes.css">
+  <script src="publicacoes.js" defer></script>
+</head>
+
+<body>
+  
+<header class="topo-admin">
+  <a class="botao-voltar" href="admin.html">
+    ← Voltar
+  </a>
+
+  <a class="marca-admin" href="index.html">
+    <img
+      src="images/logo-diogenes.png"
+      alt="Logo Diogenes"
+      class="logo-admin"
+    >
+
+    <span class="texto-marca-admin">
+      <strong>Diogenes</strong>
+      <span>Northeastern Technology</span>
+    </span>
+  </a>
+
+  <a class="link-voltar-site" href="index.html">
+    Ver site ↗
+  </a>
+</header>
+
+
+  <main class="principal">
+    <section class="introducao">
+      <p class="etiqueta">GERENCIAMENTO DE CONTEÚDO</p>
+      <h1>Suas <span>publicações</span></h1>
+      <p>Cadastre, edite e organize os conteúdos do seu espaço.</p>
+    </section>
+
+    <div id="mensagem" class="mensagem" role="status"
+         aria-live="polite" hidden></div>
+
+    <div class="layout">
+      <section class="painel formulario-painel">
+        <div class="titulo-painel">
+          <div>
+            <p class="etiqueta">NOVO CONTEÚDO</p>
+            <h2 id="titulo-formulario">Cadastrar publicação</h2>
+          </div>
+          <span class="simbolo">＋</span>
+        </div>
+
+        <form id="form-publicacao">
+          <input type="hidden" id="post-id">
+
+          <label for="categoria">Categoria</label>
+          <select id="categoria" required>
+            <option value="">Selecione uma categoria</option>
+            <option value="musica">Música</option>
+            <option value="jogos">Jogos</option>
+            <option value="fotos">Fotos</option>
+          </select>
+
+          <label for="titulo">Título da publicação</label>
+          <input id="titulo" type="text" maxlength="100"
+                 placeholder="Ex.: Minha história no Nordeste" required>
+
+          <label for="descricao">Descrição ou conteúdo</label>
+          <textarea id="descricao" rows="6" maxlength="5000"
+                    placeholder="Escreva o conteúdo da publicação..." required></textarea>
+
+          <label for="imagem">Link de uma imagem (opcional)</label>
+          <input id="imagem" type="url"
+                 placeholder="https://exemplo.com/imagem.jpg">
+
+          <label for="link">Link externo (opcional)</label>
+          <input id="link" type="url"
+                 placeholder="https://exemplo.com">
+
+          <div class="acoes-formulario">
+            <button class="botao-principal" type="submit" id="botao-salvar">
+              Publicar conteúdo <span>→</span>
+            </button>
+            <button class="botao-secundario" type="button"
+                    id="cancelar-edicao" hidden>
+              Cancelar edição
+            </button>
+          </div>
+          <p class="dica">Os campos de imagem e link são opcionais.</p>
+        </form>
+      </section>
+
+      <section class="painel lista-painel">
+        <div class="titulo-painel">
+          <div>
+            <p class="etiqueta">SEU CONTEÚDO</p>
+            <h2>Publicações cadastradas</h2>
+          </div>
+          <span class="contador" id="contador">0</span>
+        </div>
+
+        <div class="filtro">
+          <label for="filtro-categoria">Filtrar por categoria</label>
+          <select id="filtro-categoria">
+            <option value="todas">Todas as categorias</option>
+            <option value="musica">Música</option>
+            <option value="jogos">Jogos</option>
+            <option value="fotos">Fotos</option>
+          </select>
+        </div>
+
+        <div id="lista-publicacoes" class="lista-publicacoes"></div>
+      </section>
+    </div>
+  </main>
+  
+<!-- GERENCIAMENTO DE BANNERS -->
+<section class="area-gerenciar-banners">
+    <header class="cabecalho-banners">
+        <h2>Seus <span>banners</span></h2>
+        <p>Gerencie as imagens exibidas na página inicial.</p>
+    </header>
+
+    <div class="grade-banners-admin">
+        <section class="cartao-banner-admin">
+            <div class="titulo-cartao-banner">
+                <div>
+                    <span class="etiqueta-painel">NOVO BANNER</span>
+                    <h3>Adicionar banner</h3>
+                </div>
+                <span class="icone-mais-banner">＋</span>
+            </div>
+
+            <form id="form-banner">
+                <label for="imagem-banner">Imagem do banner</label>
+                <input id="imagem-banner" type="file"
+                    accept="image/jpeg,image/png,image/webp" required>
+                <small>Formatos aceitos: JPG, PNG e WEBP. Máximo: 800 KB.</small>
+
+                <label for="link-banner">Link de destino (opcional)</label>
+                <input id="link-banner" type="url"
+                    placeholder="https://exemplo.com">
+                <small>Endereço aberto quando alguém clicar no banner.</small>
+
+                <button class="botao-publicar-banner" type="submit">
+                    Publicar banner <span>→</span>
+                </button>
+                <p id="mensagem-banner" role="status"></p>
+            </form>
+        </section>
+
+        <section class="cartao-banner-admin">
+            <div class="titulo-cartao-banner">
+                <div>
+                    <span class="etiqueta-painel">BANNERS CADASTRADOS</span>
+                    <h3>Seus banners</h3>
+                </div>
+                <span id="contador-banners" class="contador-banners">0</span>
+            </div>
+
+            <label for="filtro-banners">Filtrar banners</label>
+            <select id="filtro-banners">
+                <option value="todos">Todos os banners</option>
+            </select>
+
+            <div id="lista-banners" class="lista-banners">
+                <div class="vazio-banners">
+                    <span class="icone-vazio-banner">▧</span>
+                    <strong>Você ainda não cadastrou banners.</strong>
+                    <p>Use o formulário ao lado para adicionar a primeira imagem.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+  <footer>
+    <p>© <span id="ano"></span> Diogenes Northeastern Technology</p>
+    <p>Tecnologia, inovação e raízes nordestinas.</p>
+  </footer>
+  
+</body>
+</html>
