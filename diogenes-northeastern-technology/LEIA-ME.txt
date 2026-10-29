@@ -1,0 +1,24 @@
+ATUALIZAÇÃO DA SEÇÃO JOGOS — DIOGENES NORTHEASTERN TECHNOLOGY
+
+Arquivos incluídos:
+- publicacoes.html
+- publicacoes.js
+- script.js
+- style.css
+
+COMO INSTALAR NO VS CODE:
+1. Faça uma cópia de segurança dos seus arquivos atuais.
+2. Extraia este ZIP.
+3. Copie os quatro arquivos para a pasta principal do seu site.
+4. Substitua os arquivos com os mesmos nomes. Atenção: script(5).js e style(5).css são os nomes dos uploads recebidos; no seu projeto eles devem continuar sendo script.js e style.css, conforme o HTML.
+5. Não altere os caminhos dos outros arquivos e imagens.
+6. Abra o site e acesse Área administrativa > Publicações.
+7. Em Categoria, escolha Jogos. Aparecerá o campo “Endereço do jogo para jogar no navegador”.
+8. Informe a URL pública da versão web do jogo (normalmente HTTPS), preencha título e descrição, e publique.
+9. Abra Jogos no site e clique em “Jogar agora”. Se o site do jogo bloquear a exibição dentro de iframe, use o link “abrir em outra aba”.
+
+IMPORTANTE:
+- O endereço informado deve ser uma versão web hospedada do jogo; um arquivo que existe apenas no seu computador não funciona para visitantes.
+- Alguns sites proíbem ser exibidos dentro de iframe. O link alternativo abre o jogo em outra aba.
+- Seu sistema atual usa localStorage. Publicações feitas no painel ficam no navegador/origem em que foram cadastradas; para que todos os visitantes vejam os mesmos jogos quando o site estiver publicado na internet, será necessário migrar publicações para um banco de dados/backend.
+- A página de administração usa publicacoes.css, que não estava entre os arquivos enviados; por isso não foi alterada. O novo campo segue os estilos existentes do formulário.
