@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Diogenes Northeastern Technology: tecnologia, música, jogos, filmes, séries e cultura nordestina.">
+  <meta name="theme-color" content="#050b16">
+
+  <title>Diogenes Northeastern Technology</title>
+
+  <link rel="icon" href="images/logo-diogenes.png">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="cabecalho">
+    <a href="#inicio" class="marca">
+      <img src="images/logo-diogenes.png" alt="Logo Diogenes">
+      <span>
+        <strong>Diogenes</strong>
+        <small>Northeastern Technology</small>
+      </span>
+    </a>
+
+    <button class="menu-mobile" id="botao-menu" aria-label="Abrir menu">
+      ☰
+    </button>
+
+    <nav class="menu-navegacao" id="menu-navegacao">
+      <a href="#inicio">Home</a>
+      <a href="#novidades">Conteúdos</a>
+      <a href="#" data-tela="musica">Música</a>
+      <a href="#" data-tela="jogos">Jogos</a>
+      <a href="#" data-tela="fotos">Fotos</a>
+      <a href="#" data-tela="filmes">Filmes</a>
+      <a href="#" data-tela="series">Séries</a>
+      <a href="#" data-tela="mensagem-do-dia">Mensagem do Dia</a>
+      <a href="#sobre">Sobre mim</a>
+      <a href="admin.html" class="link-admin">Área administrativa</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- PÁGINA INICIAL -->
+    <section id="inicio" class="pagina-inicial">
+
+      <!-- BANNER PRINCIPAL -->
+      <section class="home-banner" id="banner-carrossel">
+
+        <div class="banner-fundo">
+        <img
+        id="imagem-banner-principal"
+        alt=""
+        style="display: none;"
+        >
+        </div>
+
+        <div class="banner-sombra"></div>
+
+        <button
+          class="seta-banner banner-anterior"
+          id="banner-anterior"
+          aria-label="Banner anterior"
+        >❮</button>
+
+        <div class="banner-conteudo">
+          <span class="etiqueta-banner">
+            TECNOLOGIA • CULTURA • INOVAÇÃO
+          </span>
+
+          <h1>Diogenes Northeastern Technology</h1>
+
+          <p>
+            Um espaço pessoal que une tecnologia, música, jogos,
+            filmes, séries e cultura nordestina.
+          </p>
+
+          <a href="#novidades" class="botao-principal">
+            Explorar meu mundo
+          </a>
+        </div>
+
+        <button
+          class="seta-banner banner-proximo"
+          id="banner-proximo"
+          aria-label="Próximo banner"
+        >❯</button>
+
+        <div class="indicadores-banner" id="indicadores-banner"></div>
+      </section>
+
+      <!-- CONTEÚDOS -->
+      <section class="secao-conteudo" id="novidades">
+        <div class="titulo-secao">
+          <span>DESCUBRA</span>
+          <h2>Explore meus conteúdos</h2>
+          <p>
+            Um pouco do que gosto, acompanho e compartilho.
+          </p>
+        </div>
+
+        <div class="grade-categorias">
+
+          <article class="cartao-categoria">
+            <div class="icone-categoria">♫</div>
+            <h3>Música</h3>
+            <p>Artistas, músicas e descobertas musicais.</p>
+            <div id="home-posts-musica" class="resumo-publicacoes"></div>
+            <button data-tela="musica" class="botao-categoria">
+              Ver publicações →
+            </button>
+          </article>
+
+          <article class="cartao-categoria">
+            <div class="icone-categoria">🎮</div>
+            <h3>Jogos</h3>
+            <p>Jogos, experiências e novidades do universo gamer.</p>
+            <div id="home-posts-jogos" class="resumo-publicacoes"></div>
+            <button data-tela="jogos" class="botao-categoria">
+              Ver publicações →
+            </button>
+          </article>
+
+          <article class="cartao-categoria">
+            <div class="icone-categoria">📷</div>
+            <h3>Fotos</h3>
+            <p>Imagens, registros e momentos especiais.</p>
+            <div id="home-posts-fotos" class="resumo-publicacoes"></div>
+            <button data-tela="fotos" class="botao-categoria">
+              Ver publicações →
+            </button>
+          </article>
+
+          <article class="cartao-categoria">
+            <div class="icone-categoria">🎬</div>
+            <h3>Filmes</h3>
+            <p>Filmes, histórias e recomendações.</p>
+            <div id="home-posts-filmes" class="resumo-publicacoes"></div>
+            <button data-tela="filmes" class="botao-categoria">
+              Ver publicações →
+            </button>
+          </article>
+
+          <article class="cartao-categoria">
+            <div class="icone-categoria">📺</div>
+            <h3>Séries</h3>
+            <p>Séries, episódios e personagens.</p>
+            <div id="home-posts-series" class="resumo-publicacoes"></div>
+            <button data-tela="series" class="botao-categoria">
+              Ver publicações →
+            </button>
+          </article>
+
+          <article class="cartao-categoria">
+            <div class="icone-categoria">✨</div>
+            <h3>Mensagem do Dia</h3>
+            <p>Palavras para inspirar e refletir.</p>
+            <div id="home-posts-mensagem-do-dia" class="resumo-publicacoes"></div>
+            <button data-tela="mensagem-do-dia" class="botao-categoria">
+              Ver publicações →
+            </button>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- SOBRE MIM -->
+      <section class="secao-sobre" id="sobre">
+        <div class="sobre-imagem">
+          <img src="images/minha-foto.jpg" alt="Foto de Caio Diogenes">
+        </div>
+
+        <div class="sobre-texto">
+          <span class="subtitulo">QUEM ESTÁ POR TRÁS DO SITE</span>
+          <h2>Sobre mim</h2>
+
+          <p>
+            Olá! Eu sou Caio Diogenes, estudante de Análise e
+            Desenvolvimento de Sistemas na Universidade Federal
+            do Rio Grande do Norte, na EAJ.
+          </p>
+
+          <p>
+            Sou de Macaíba, Rio Grande do Norte, e gosto de tecnologia
+            desde criança. Estou construindo este espaço para compartilhar
+            meus interesses por programação, música, jogos, filmes,
+            séries e cultura nordestina.
+          </p>
+
+          <p>
+            Este site representa meu começo na programação e minha
+            vontade de aprender, criar e compartilhar experiências.
+          </p>
+
+          <div class="sobre-etiquetas">
+            <span>Tecnologia</span>
+            <span>Música</span>
+            <span>Jogos</span>
+            <span>Cultura nordestina</span>
+            <span>Filmes</span>
+            <span>Séries</span>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- TELA DE MÚSICA -->
+    <section class="tela-categoria" id="tela-musica" data-pagina="musica">
+      <div class="cabecalho-categoria">
+        <span>MEUS CONTEÚDOS</span>
+        <h2>Música</h2>
+        <p>Artistas, músicas e descobertas musicais.</p>
+      </div>
+      <div class="lista-publicacoes" id="posts-musica"></div>
+    </section>
+
+    <!-- TELA DE JOGOS -->
+    <section class="tela-categoria" id="tela-jogos" data-pagina="jogos">
+      <div class="cabecalho-categoria">
+        <span>MEUS CONTEÚDOS</span>
+        <h2>Jogos</h2>
+        <p>Jogos e experiências do universo gamer.</p>
+      </div>
+      <div class="lista-publicacoes" id="posts-jogos"></div>
+    </section>
+
+    <!-- TELA DE FOTOS -->
+    <section class="tela-categoria" id="tela-fotos" data-pagina="fotos">
+      <div class="cabecalho-categoria">
+        <span>MEUS CONTEÚDOS</span>
+        <h2>Fotos</h2>
+        <p>Imagens e momentos especiais.</p>
+      </div>
+      <div class="lista-publicacoes" id="posts-fotos"></div>
+    </section>
+
+    <!-- TELA DE FILMES -->
+    <section class="tela-categoria" id="tela-filmes" data-pagina="filmes">
+      <div class="cabecalho-categoria">
+        <span>MEUS CONTEÚDOS</span>
+        <h2>Filmes</h2>
+        <p>Filmes e recomendações.</p>
+      </div>
+      <div class="lista-publicacoes" id="posts-filmes"></div>
+    </section>
+
+    <!-- TELA DE SÉRIES -->
+    <section class="tela-categoria" id="tela-series" data-pagina="series">
+      <div class="cabecalho-categoria">
+        <span>MEUS CONTEÚDOS</span>
+        <h2>Séries</h2>
+        <p>Séries, episódios e personagens.</p>
+      </div>
+      <div class="lista-publicacoes" id="posts-series"></div>
+    </section>
+
+    <!-- MENSAGEM DO DIA -->
+    <section class="tela-categoria" id="tela-mensagem-do-dia" data-pagina="mensagem-do-dia">
+      <div class="cabecalho-categoria">
+        <span>MEUS CONTEÚDOS</span>
+        <h2>Mensagem do Dia</h2>
+        <p>Mensagens para inspirar e refletir.</p>
+      </div>
+      <div class="lista-publicacoes" id="posts-mensagem-do-dia"></div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+
+      <div class="rodape-marca">
+        <img src="images/logo-diogenes.png" alt="Logo Diogenes">
+        <div>
+          <strong>Diogenes</strong>
+          <span>Northeastern Technology</span>
+        </div>
+      </div>
+
+      <p>
+        Tecnologia, cultura, inovação e um pouco do meu mundo nordestino.
+      </p>
+
+      <div class="redes-sociais">
+        <a href="mailto:caiodiogenes16@gmail.com">E-mail</a>
+        <a href="https://github.com/menguitaoficial" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/caio-diogenes-783a90232" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/menguita.oficial/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <p class="copyright">
+        © <span id="ano"></span> Diogenes Northeastern Technology.
+        Todos os direitos reservados.
+      </p>
+
+    </div>
+
+    <img class="decoracao-rodape caquito-esquerdo"
+         src="images/computador.png" alt="" aria-hidden="true">
+
+    <img class="decoracao-rodape caquito-direito"
+         src="images/caquito.png" alt="" aria-hidden="true">
+  </footer>
+
+</body>
+</html>

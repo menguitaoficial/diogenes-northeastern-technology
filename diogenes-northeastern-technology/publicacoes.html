@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050b16">
+    <meta name="description" content="Painel de gerenciamento do Diogenes Northeastern Technology.">
+
+    <title>Painel de Publicações | Diogenes Northeastern Technology</title>
+
+    <link rel="icon" type="image/png" href="images/logo-diogenes.png">
+    <link rel="stylesheet" href="publicacoes.css">
+    <script src="publicacoes.js" defer></script>
+</head>
+
+<body>
+
+    <header class="topo-admin">
+        <a class="botao-voltar" href="admin.html">← Voltar</a>
+
+        <a class="marca-admin" href="index.html">
+            <img src="images/logo-diogenes.png" alt="Logo Diogenes" class="logo-admin">
+            <span class="texto-marca-admin">
+                <strong>Diogenes</strong>
+                <span>Northeastern Technology</span>
+            </span>
+        </a>
+
+        <a class="link-voltar-site" href="index.html">Visualizar site ↗</a>
+    </header>
+
+    <main class="principal">
+
+        <section class="boas-vindas">
+            <div>
+                <span class="etiqueta">PAINEL ADMINISTRATIVO</span>
+                <h1>Gerenciar <span>conteúdos</span></h1>
+                <p>Crie, organize, edite e acompanhe suas publicações.</p>
+            </div>
+
+            <div class="resumo-total">
+                <span class="resumo-icone">▤</span>
+                <div>
+                    <strong id="contador">0</strong>
+                    <span>Publicações cadastradas</span>
+                </div>
+            </div>
+        </section>
+
+        <div id="mensagem" class="mensagem" role="status" aria-live="polite" hidden></div>
+
+        <section class="layout-principal">
+
+            <!-- FORMULÁRIO -->
+            <section class="painel formulario-painel">
+
+                <div class="cabecalho-secao">
+                    <div>
+                        <span class="etiqueta">CRIAR CONTEÚDO</span>
+                        <h2 id="titulo-formulario">Nova publicação</h2>
+                        <p>Preencha as informações abaixo.</p>
+                    </div>
+                    <span class="icone-secao">＋</span>
+                </div>
+
+                <form id="form-publicacao">
+                    <input type="hidden" id="post-id">
+
+                    <div class="grupo-campo">
+                        <label for="categoria">Categoria <span>*</span></label>
+                        <select id="categoria" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="musica">Música</option>
+                            <option value="jogos">Jogos</option>
+                            <option value="fotos">Fotos</option>
+                            <option value="filmes">Filmes</option>
+                            <option value="series">Séries</option>
+                            <option value="mensagem-do-dia">Mensagem do Dia</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="titulo">Título da publicação <span>*</span></label>
+                        <input
+                            id="titulo"
+                            type="text"
+                            maxlength="100"
+                            placeholder="Digite o título do conteúdo"
+                            required
+                        >
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="descricao">Descrição ou conteúdo <span>*</span></label>
+                        <textarea
+                            id="descricao"
+                            rows="7"
+                            maxlength="5000"
+                            placeholder="Escreva aqui o conteúdo da sua publicação..."
+                            required
+                        ></textarea>
+                        <small>Você pode escrever textos, informações e apresentações.</small>
+                    </div>
+
+                    <div class="separador-formulario">
+                        <span>INFORMAÇÕES ADICIONAIS</span>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="imagem">Link da imagem <small>(opcional)</small></label>
+                        <input
+                            id="imagem"
+                            type="url"
+                            placeholder="https://exemplo.com/imagem.jpg"
+                        >
+                        <small>Insira o endereço público de uma imagem.</small>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="link">Link externo <small>(opcional)</small></label>
+                        <input
+                            id="link"
+                            type="url"
+                            placeholder="https://exemplo.com"
+                        >
+                        <small>Link de um site, música, filme ou outro conteúdo.</small>
+                    </div>
+
+                    <div id="grupo-url-jogo" class="grupo-campo" hidden>
+                        <label for="url-jogo">Endereço do jogo</label>
+                        <input
+                            id="url-jogo"
+                            type="url"
+                            placeholder="https://seusite.com/jogos/meu-jogo/"
+                        >
+                        <small>Informe o endereço público do jogo para jogar no navegador.</small>
+                    </div>
+
+                    <div class="acoes-formulario">
+                        <button class="botao-principal" type="submit" id="botao-salvar">
+                            Publicar conteúdo <span>→</span>
+                        </button>
+
+                        <button
+                            class="botao-secundario"
+                            type="button"
+                            id="cancelar-edicao"
+                            hidden
+                        >
+                            Cancelar edição
+                        </button>
+                    </div>
+
+                    <p class="aviso-formulario">
+                        <span>ℹ</span> Os campos marcados com * são obrigatórios.
+                    </p>
+                </form>
+            </section>
+
+            <!-- LISTA DE PUBLICAÇÕES -->
+            <section class="painel lista-painel">
+
+                <div class="cabecalho-secao">
+                    <div>
+                        <span class="etiqueta">SEU CONTEÚDO</span>
+                        <h2>Publicações</h2>
+                        <p>Gerencie os conteúdos que você cadastrou.</p>
+                    </div>
+                    <span class="icone-secao">▤</span>
+                </div>
+
+                <div class="filtro">
+                    <label for="filtro-categoria">Filtrar publicações</label>
+                    <select id="filtro-categoria">
+                        <option value="todas">Todas as categorias</option>
+                        <option value="musica">Música</option>
+                        <option value="jogos">Jogos</option>
+                        <option value="fotos">Fotos</option>
+                        <option value="filmes">Filmes</option>
+                        <option value="series">Séries</option>
+                        <option value="mensagem-do-dia">Mensagem do Dia</option>
+                    </select>
+                </div>
+
+                <div id="lista-publicacoes" class="lista-publicacoes">
+                    <p class="vazio-publicacoes">
+                        Carregando publicações...
+                    </p>
+                </div>
+            </section>
+
+        </section>
+
+        <!-- GERENCIAMENTO DE BANNERS -->
+        <section class="area-gerenciar-banners">
+
+            <div class="cabecalho-banners">
+                <div>
+                    <span class="etiqueta">APARÊNCIA DO SITE</span>
+                    <h2>Gerenciar <span>banners</span></h2>
+                    <p>Adicione e organize as imagens do destaque da página inicial.</p>
+                </div>
+            </div>
+
+            <div class="grade-banners-admin">
+
+                <section class="cartao-banner-admin">
+                    <div class="titulo-cartao-banner">
+                        <div>
+                            <span class="etiqueta">ADICIONAR IMAGEM</span>
+                            <h3>Novo banner</h3>
+                        </div>
+                        <span class="icone-secao">＋</span>
+                    </div>
+
+                    <form id="form-banner">
+                        <label for="imagem-banner">Escolher imagem</label>
+                        <input
+                            id="imagem-banner"
+                            type="file"
+                            accept="image/jpeg,image/png,image/webp"
+                            required
+                        >
+
+                        <small>Formatos JPG, PNG ou WEBP. Tamanho máximo: 800 KB.</small>
+
+                        <label for="link-banner">Link de destino <small>(opcional)</small></label>
+                        <input
+                            id="link-banner"
+                            type="url"
+                            placeholder="https://exemplo.com"
+                        >
+
+                        <small>Endereço aberto quando alguém clicar no banner.</small>
+
+                        <button class="botao-publicar-banner" type="submit">
+                            Adicionar banner <span>→</span>
+                        </button>
+
+                        <p id="mensagem-banner" role="status"></p>
+                    </form>
+                </section>
+
+                <section class="cartao-banner-admin">
+                    <div class="titulo-cartao-banner">
+                        <div>
+                            <span class="etiqueta">IMAGENS DO SITE</span>
+                            <h3>Banners cadastrados</h3>
+                        </div>
+                        <span id="contador-banners" class="contador-banners">0</span>
+                    </div>
+
+                    <label for="filtro-banners">Filtrar banners</label>
+                    <select id="filtro-banners">
+                        <option value="todos">Todos os banners</option>
+                    </select>
+
+                    <div id="lista-banners" class="lista-banners">
+                        <div class="vazio-banners">
+                            <span class="icone-vazio-banner">▧</span>
+                            <strong>Você ainda não cadastrou banners.</strong>
+                            <p>Adicione uma imagem para começar.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="rodape-admin">
+        <p>© <span id="ano"></span> Diogenes Northeastern Technology</p>
+        <span>Tecnologia, inovação e raízes nordestinas.</span>
+    </footer>
+
+</body>
+</html>
