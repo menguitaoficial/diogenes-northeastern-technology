@@ -1,0 +1,36 @@
+DIOGENES NORTHEASTERN TECHNOLOGY — CONEXÃO COM SUPABASE
+
+O QUE FOI CONECTADO
+- Login administrativo usando Supabase Auth (e-mail e senha).
+- Publicações gravadas na tabela public.publicacoes.
+- Upload de músicas para o bucket público midias-site.
+- Upload de vídeos para o bucket público midias-site.
+- Players de áudio e vídeo exibidos na página inicial e nas categorias.
+- A lista pública lê os registros do Supabase.
+- As operações de inserir, editar e excluir dependem das políticas RLS já criadas no projeto.
+
+CONFIGURAÇÃO JÁ INFORMADA NESTE PROJETO
+- URL: https://fhltyituqwhomfpndzdx.supabase.co
+- Chave no navegador: publishable key (não é uma chave secreta).
+- Bucket: midias-site
+- Usuário autorizado: o usuário Supabase cujo UID foi usado nas políticas SQL.
+
+COMO PUBLICAR A ATUALIZAÇÃO
+1. Descompacte este ZIP.
+2. Abra a pasta diogenes-northeastern-technology no VS Code.
+3. Teste localmente usando Live Server, se desejar.
+4. Publique a pasta do site novamente no Netlify, substituindo a versão anterior.
+5. Abra /admin.html no domínio publicado.
+6. Entre com o e-mail e a senha cadastrados no Supabase Authentication > Users.
+7. Na página Publicações, use “Importar publicações antigas deste navegador” para copiar os posts que ainda estejam no localStorage deste mesmo navegador.
+8. Para uma música, selecione a categoria Música e escolha um arquivo MP3, OGG ou WAV.
+9. Para filmes/séries, escolha Filmes ou Séries e selecione MP4, WEBM ou MOV.
+10. Clique em Publicar conteúdo. O arquivo será enviado ao Storage e o registro ficará no banco.
+
+LIMITES E OBSERVAÇÕES
+- O formulário limita o arquivo de mídia a 50 MB por envio. Vídeos maiores devem ficar em um serviço de hospedagem/streaming externo e ser inseridos como link, ou exigir ajuste de plano/limites no Supabase.
+- Envie somente arquivos que você tem direito de publicar e distribuir.
+- A chave publishable é pública e foi incluída no JavaScript do navegador; nunca inclua a chave secret/service_role.
+- Comentários e banners continuam usando localStorage nesta versão e, portanto, ainda não sincronizam entre dispositivos.
+- A importação de publicações antigas só consegue ler o localStorage do navegador em que o painel for aberto. Se os posts antigos estiverem em outro navegador/dispositivo, será necessário exportá-los daquele local antes da migração.
+- A atualização foi verificada quanto à sintaxe JavaScript e estrutura do ZIP. A conexão real, o login, o upload e a publicação precisam ser testados no domínio Netlify com sua conta.
